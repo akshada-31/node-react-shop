@@ -1,4 +1,4 @@
 # node-react-shop
 
 create react app with vite
-tailwindcss with the flowbite
+tailwindcss with the flowbit

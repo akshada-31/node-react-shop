@@ -1,133 +1,52 @@
 import { useState } from 'react'
 import 'flowbite';
+import './index.css'; // or './globals.css' depending on your setup
+
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import Navbar from './Layouts/Navbar';
 import Footer from './Layouts/Footer';
 import Layout from "./Layouts/Layouts";
+import Products from './components/Products';
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import ProductDetail from './pages/ProductDetail';
+import Home from './pages/Home';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import Checkout from './pages/Checkout';
+import { useSelector } from 'react-redux';
+import PlaceOrder from './pages/PlaceOrder';
+import OrderConfirmation from "./pages/OrderConfirm";
+import { OrderHistory } from './pages/OrderHistory';
 
 function App() {
   const [count, setCount] = useState(0)
+  const userLoginReducer = useSelector((state) => state.userLoginReducer)
+  const { userInfo } = userLoginReducer
 
   return (
-    <Layout>
-      <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-wrap -m-4">
-            <div class="p-4 lg:w-1/4 md:w-1/2">
-              <div class="bg-white">
-                <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                  <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-
-                  <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    <div class="group relative">
-                      <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"/>
-                        <div class="mt-4 flex justify-between">
-                          <div>
-                            <h3 class="text-sm text-gray-700">
-                              <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>
-                              </a>
-                            </h3>
-                            <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                        </div>
-                    </div>
-
-                    
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="p-4 lg:w-1/4 md:w-1/2">
-              <div class="bg-white">
-                <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                  <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-
-                  <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    <div class="group relative">
-                      <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"/>
-                        <div class="mt-4 flex justify-between">
-                          <div>
-                            <h3 class="text-sm text-gray-700">
-                              <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>
-                              </a>
-                            </h3>
-                            <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                        </div>
-                    </div>
-
-                    
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="p-4 lg:w-1/4 md:w-1/2">
-              <div class="bg-white">
-                <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                  <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-
-                  <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    <div class="group relative">
-                      <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"/>
-                        <div class="mt-4 flex justify-between">
-                          <div>
-                            <h3 class="text-sm text-gray-700">
-                              <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>
-                              </a>
-                            </h3>
-                            <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                        </div>
-                    </div>
-
-                    
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="p-4 lg:w-1/4 md:w-1/2">
-              <div class="bg-white">
-                <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                  <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-
-                  <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    <div class="group relative">
-                      <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"/>
-                        <div class="mt-4 flex justify-between">
-                          <div>
-                            <h3 class="text-sm text-gray-700">
-                              <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>
-                              </a>
-                            </h3>
-                            <p class="mt-1 text-sm text-gray-500">Black</p>
-                          </div>
-                          <p class="text-sm font-medium text-gray-900">$35</p>
-                        </div>
-                    </div>
-
-                    
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-    </Layout>
+    <>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/products/:id" element={<ProductDetail />}></Route>
+          <Route exact
+            path="/login"
+            element={userInfo ? <Navigate to="/"></Navigate> : <Login />}>
+          </Route>
+          <Route exact path="/register" element={userInfo ? <Navigate to="/"></Navigate> : <Register />}></Route>
+          <Route exact
+            path="/checkout"
+            element={<Checkout />}>
+          </Route>
+          <Route exact
+            path="/placeorder"
+            element={<PlaceOrder />}>
+          </Route>
+          <Route path="/order/:id" element={<OrderConfirmation />} />
+          <Route path="/order-history" element={<OrderHistory />} />
+        </Routes>
+      </Router>
+    </>
   );
 };
 

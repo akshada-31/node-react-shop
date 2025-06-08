@@ -4,7 +4,7 @@ const users = require('./data/Users')
 const Product = require('./models/Product')
 const products = require('./data/Products')
 const AsynHandler=require('express-async-handler')
-router.post('/users',AsynHandler(
+router.get('/users',AsynHandler(
     async(req,res)=>{
         await User.deleteMany({});
         const UserSeeder = await User.insertMany(users);
@@ -14,7 +14,7 @@ router.post('/users',AsynHandler(
 );
 
 
-router.post('/products',AsynHandler(
+router.get('/products',AsynHandler(
     async(req,res)=>{
         await Product.deleteMany({});
         const ProductSeeder = await Product.insertMany(products);

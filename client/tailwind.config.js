@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports ={
   // This 'content' array tells Tailwind where to look for your classes
   content: [
     "./index.html", // Important for scanning your base HTML

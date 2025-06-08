@@ -50,6 +50,7 @@ userRoute.post("/",AsynHandler(async(req,res)=>{
                 email:user.email,
                 isAdmin:user.isAdmin,
                 createdAt:user.createdAt,
+                token: generateToekn(user._id),
             });
 
         }else{
@@ -72,6 +73,7 @@ userRoute.get(
              email:user.email,
              isAdmin:user.isAdmin,
              createdAt:user.createdAt,
+             token: generateToekn(user._id),
         });
 
     }else{
